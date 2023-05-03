@@ -10,27 +10,27 @@ int main(void)
     height = get_int("Height: ");
   } while(height < 0 || height > 8);
 
-  //generate pyramids:
-  int spaces = height - 2;
   //generate height:
-  for (int i = 0; i < height; i++)
+  for (int row = 0; row < height; row++)
   {
-    printf("Spaces %i\n", spaces);
     //print leading spaces:
-    while (spaces > 0)
+    for (int space = 0; space < height - row - 1; space++)
     {
-      printf("_");
-      spaces -= 1;
+      printf(" ");
     }
-    //print hashes:
-    int hashes = 0;
-    while (hashes <= i)
+    //print 1st pyramid hashes:
+    for (int hashes = 0; hashes <=row; hashes++)
     {
       printf("#");
-      hashes++;
     }
-    //print space between:
-    printf("__");
+    //print gap:
+    printf("  ");
+
+    //print 2nd pyramid hashes
+    for (int hashes = 0; hashes <=row; hashes++)
+    {
+      printf("#");
+    }
     printf("\n");
   }
 }
